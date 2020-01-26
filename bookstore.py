@@ -17,7 +17,11 @@ class Book:
 
         self.bookstore = BookStore()
 
-
+    #The save function is called when a book is updated or added to the database.
+    #It passes the self keyword to access the attributes of the class
+    #If the self has an id it finds it in the database and calls the _up_date book function
+    #If the self doesn't have an id it calls the _add_book fuction and creates an id
+    #In either function the data is pushed to to database
     def save(self):
         if self.id:
             self.bookstore._update_book(self)
