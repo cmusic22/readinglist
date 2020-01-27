@@ -56,11 +56,18 @@ def get_book_id():
             print('Please enter a number.')
 
 
-def get_read_value():
+def get_read_value(book):
     """ Ask user to enter 'read' or 'not read'
      :returns: True if user enters 'read' or False if user enters 'not read' """
     while True:
         response = input('Enter \'read\' if book is read or \'not read\' if book is not read: ')
+        #added if/elif to print if the book was read or not when the status changes
+        #would like to add the name of the book to the print
+        if response.lower() == 'not read':
+            print('You have not read the book', book.title)
+        elif response.lower() == 'read':
+            print('You have read the book', book.title)
+
         if response.lower() in ['read', 'not read']:
             return response.lower() == 'read'
         else:
