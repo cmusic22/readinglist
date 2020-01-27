@@ -62,7 +62,7 @@ def get_read_value(book):
     while True:
         response = input('Enter \'read\' if book is read or \'not read\' if book is not read: ')
         #added if/elif to print if the book was read or not when the status changes
-        #would like to add the name of the book to the print
+        #passed book variable to be able to grab the book tile in the conformation
         if response.lower() == 'not read':
             print('You have not read the book', book.title)
         elif response.lower() == 'read':
