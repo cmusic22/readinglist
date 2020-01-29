@@ -72,6 +72,12 @@ def change_read():
     else:
         print('No book with that ID. Please try again.')
 
+def delete_book():
+    # try:
+        book_id = ui.get_book_id()
+        store._delete_book(book_id)
+    # except
+
 
 def quit_program():
     ui.message('Thanks and bye!')
