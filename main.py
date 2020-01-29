@@ -73,10 +73,14 @@ def change_read():
     else:
         print('No book with that ID. Please try again.')
 
+
 def delete_book():
-    book_id = ui.get_book_id()
-    book = store.get_book_by_id(book_id)
-    store._delete_book(book)
+    try:
+        book_id = ui.get_book_id()
+        book = store.get_book_by_id(book_id)
+        store._delete_book(book)
+    except AttributeError:
+        print('Error: Book Not Found')
 
 
 def quit_program():
