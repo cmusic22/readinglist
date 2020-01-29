@@ -38,7 +38,7 @@ def add_book():
         new_book.save()
     except TypeError:
         print('That book has already been entered, \nplease select another option.')
-    
+
 
 def show_read_books():
     read_books = store.get_books_by_read_value(True)
@@ -64,11 +64,14 @@ def search_book():
 def change_read():
 
     book_id = ui.get_book_id()
-    book = store.get_book_by_id(book_id)  
-    new_read = ui.get_read_value(book) #added book variable to be passed to be able to grab the book.title     
-    book.read = new_read 
-    book.save()
-    
+    book = store.get_book_by_id(book_id)
+    if book != None:
+        new_read = ui.get_read_value(book) #added book variable to be passed to be able to grab the book.title
+        book.read = new_read
+        book.save()
+    else:
+        print('No book with that ID. Please try again.')
+
 
 def quit_program():
     ui.message('Thanks and bye!')
